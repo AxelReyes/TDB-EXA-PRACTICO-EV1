@@ -1,0 +1,28 @@
+ MySQL  localhost:3306 ssl  shop  SQL > insert into sub_category(subcategory) values('Bookcases') ,('Chairs') ,('Labels') ,('Tables') ,('Storage') ,('Furnishings') ,('Art') ,('Phones') ,('Binders') ,('Appliances') ,('Paper') ,('Accessories') ,('Envelopes') ,('Fasteners') ,('Supplies') ,('Machines') ,('Copiers') ;
+Query OK, 17 rows affected (0.0035 sec)
+
+Records: 17  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  shop  SQL > select * from sub_category;
++----------------+-------------+
+| id_subcategory | subcategory |
++----------------+-------------+
+|              1 | Bookcases   |
+|              2 | Chairs      |
+|              3 | Labels      |
+|              4 | Tables      |
+|              5 | Storage     |
+|              6 | Furnishings |
+|              7 | Art         |
+|              8 | Phones      |
+|              9 | Binders     |
+|             10 | Appliances  |
+|             11 | Paper       |
+|             12 | Accessories |
+|             13 | Envelopes   |
+|             14 | Fasteners   |
+|             15 | Supplies    |
+|             16 | Machines    |
+|             17 | Copiers     |
++----------------+-------------+
+17 rows in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  shop  SQL >

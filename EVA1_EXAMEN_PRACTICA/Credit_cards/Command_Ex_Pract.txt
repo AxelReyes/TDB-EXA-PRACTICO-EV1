@@ -1,0 +1,825 @@
+EXAMEN PRACTICO CREDIT_CARDS
+
+ MySQL  localhost:3308 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| agencia            |
+| evaluacion_1       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.0018 sec)
+ MySQL  localhost:3308 ssl  SQL > create database credit cards;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cards' at line 1
+ MySQL  localhost:3308 ssl  SQL > create database credit_cards;
+Query OK, 1 row affected (0.0155 sec)
+ MySQL  localhost:3308 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| agencia            |
+| credit_cards       |
+| evaluacion_1       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.0016 sec)
+ MySQL  localhost:3308 ssl  SQL > \use credit_cards
+Default schema set to `credit_cards`.
+Fetching global names, object names from `credit_cards` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int,card_holder's name varchar(50),
+                                             '> issuing_bank varchar
+                                             '> (60),;
+                                             '> ';
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''s name varchar(50),
+issuing_bank varchar
+(60),;
+'' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int,card_holders_name varchar(50),card_type_full_name varchar(60),issuing_bank varchar (60);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int,card_holders_name varchar(50),card_type_full_name varchar(60),issuing_bank varchar (60)';
+                                             '> ';
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '';
+'' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int,card_holders_name varchar(50),card_type_full_name varchar(60),issuing_bank varchar (60);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int,card_holders_name varchar(50),card_type_full_name varchar(60),issuing_bank varchar (60)
+                                             -> ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int,card_holders_name varchar(50),card_type_full_name varchar(60),issuing_bank varchar (60) ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int,card_holders_name varchar(50),card_type_full_name varchar(60),issuing_bank varchar (60) ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL >  create table tarjeta(card_number int,card_holders_name varchar(50),card_type_full_name varchar(60),issuing_bank varchar (60) ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int key,card_holders_name varchar(50),card_type_full_name varchar(60),issuing_bank varchar(60);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int key not null, card_holders_name varchar(50), card_type_full_name varchar(50), issuing_bank varchar(50);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta(card_number int key not null, card_holders_name varchar(50), card_type_full_name varchar(50), issuing_bank varchar(50));
+Query OK, 0 rows affected (0.0300 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > show tables;
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| tarjeta                |
++------------------------+
+1 row in set (0.0169 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta
+                                             -> ;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| card_number         | int         | NO   | PRI | NULL    |       |
+| card_holders_name   | varchar(50) | YES  |     | NULL    |       |
+| card_type_full_name | varchar(50) | YES  |     | NULL    |       |
+| issuing_bank        | varchar(50) | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.0158 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Server version: 8.0.31 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3308 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| agencia            |
+| credit_cards       |
+| evaluacion_1       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.0016 sec)
+ MySQL  localhost:3308 ssl  SQL > \use credit_cards
+Default schema set to `credit_cards`.
+Fetching global names, object names from `credit_cards` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3308 ssl  credit_cards  SQL > show tables;
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| tarjeta                |
++------------------------+
+1 row in set (0.0024 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta
+                                             -> ;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| card_number         | int         | NO   | PRI | NULL    |       |
+| card_holders_name   | varchar(50) | YES  |     | NULL    |       |
+| card_type_full_name | varchar(50) | YES  |     | NULL    |       |
+| issuing_bank        | varchar(50) | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.0039 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta_fechas(card
+                                             -> _number int, issue_date int, expiry_date int, billing_date int));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '_number int, issue_date int, expiry_date int, billing_date int))' at line 2
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta_fechas(card_number int, issue_date int, expiry_date int, billing_date int));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta_fechas(card_number int, issue_date int, expiry_date int, billing_date int);
+Query OK, 0 rows affected (0.0330 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > show tables;
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| tarjeta                |
+| tarjeta_fechas         |
++------------------------+
+2 rows in set (0.0023 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_fechas;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| card_number  | int  | YES  |     | NULL    |       |
+| issue_date   | int  | YES  |     | NULL    |       |
+| expiry_date  | int  | YES  |     | NULL    |       |
+| billing_date | int  | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+4 rows in set (0.0033 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta_datos(cvv int not null, card_pin not null int, credit_limit not null);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null int, credit_limit not null)' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create table tarjeta_datos(cvv int not null, card_pin int not null, credit_limit int not null);
+Query OK, 0 rows affected (0.0326 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > show tables;
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| tarjeta                |
+| tarjeta_datos          |
+| tarjeta_fechas         |
++------------------------+
+3 rows in set (0.0023 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > tarjeta_datos;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tarjeta_datos' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_datos;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| cvv          | int  | NO   |     | NULL    |       |
+| card_pin     | int  | NO   |     | NULL    |       |
+| credit_limit | int  | NO   |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+3 rows in set (0.0033 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > alter table tarjeta_datos
+                                             -> add column card_number int
+                                             -> before cvv;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'before cvv' at line 3
+ MySQL  localhost:3308 ssl  credit_cards  SQL > alter table tarjeta_datos add column card_number int cvv;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cvv' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > alter table tarjeta_datos add column card_number int ;
+Query OK, 0 rows affected (0.0287 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_datos;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| cvv          | int  | NO   |     | NULL    |       |
+| card_pin     | int  | NO   |     | NULL    |       |
+| credit_limit | int  | NO   |     | NULL    |       |
+| card_number  | int  | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+4 rows in set (0.0029 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > show tables;
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| tarjeta                |
+| tarjeta_datos          |
+| tarjeta_fechas         |
++------------------------+
+3 rows in set (0.0023 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta
+                                             -> ;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| card_number         | int         | NO   | PRI | NULL    |       |
+| card_holders_name   | varchar(50) | YES  |     | NULL    |       |
+| card_type_full_name | varchar(50) | YES  |     | NULL    |       |
+| issuing_bank        | varchar(50) | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.0030 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_datos;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| cvv          | int  | NO   |     | NULL    |       |
+| card_pin     | int  | NO   |     | NULL    |       |
+| credit_limit | int  | NO   |     | NULL    |       |
+| card_number  | int  | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+4 rows in set (0.0026 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_fechas ;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| card_number  | int  | YES  |     | NULL    |       |
+| issue_date   | int  | YES  |     | NULL    |       |
+| expiry_date  | int  | YES  |     | NULL    |       |
+| billing_date | int  | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+4 rows in set (0.0043 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL >
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ MySQL  localhost:3308 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| agencia            |
+| credit_cards       |
+| evaluacion_1       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.0126 sec)
+ MySQL  localhost:3308 ssl  SQL > \use credit_cards;
+MySQL Error 1049: Unknown database 'credit_cards;'
+ MySQL  localhost:3308 ssl  SQL > \use credit_cards
+Default schema set to `credit_cards`.
+Fetching global names, object names from `credit_cards` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3308 ssl  credit_cards  SQL > show tables;
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| tarjeta                |
+| tarjeta_datos          |
+| tarjeta_fechas         |
++------------------------+
+3 rows in set (0.0016 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjetas;
+ERROR: 1146 (42S02): Table 'credit_cards.tarjetas' doesn't exist
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| card_number         | int         | NO   | PRI | NULL    |       |
+| card_holders_name   | varchar(50) | YES  |     | NULL    |       |
+| card_type_full_name | varchar(50) | YES  |     | NULL    |       |
+| issuing_bank        | varchar(50) | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.0034 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| card_number         | int         | NO   | PRI | NULL    |       |
+| card_holders_name   | varchar(50) | YES  |     | NULL    |       |
+| card_type_full_name | varchar(50) | YES  |     | NULL    |       |
+| issuing_bank        | varchar(50) | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.0040 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_datos;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| cvv          | int  | NO   |     | NULL    |       |
+| card_pin     | int  | NO   |     | NULL    |       |
+| credit_limit | int  | NO   |     | NULL    |       |
+| card_number  | int  | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+4 rows in set (0.0038 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_fechas;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| card_number  | int  | YES  |     | NULL    |       |
+| issue_date   | int  | YES  |     | NULL    |       |
+| expiry_date  | int  | YES  |     | NULL    |       |
+| billing_date | int  | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+4 rows in set (0.0026 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > alter table tarjeta_datos                                               alter table tarjeta_datos
+                                             -> ;
+Query OK, 0 rows affected (0.0203 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_datos;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| cvv          | int  | NO   |     | NULL    |       |
+| card_pin     | int  | NO   |     | NULL    |       |
+| credit_limit | int  | NO   |     | NULL    |       |
+| card_number  | int  | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+4 rows in set (0.0029 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > alter table tarjeta_datos modify cvv int key;
+Query OK, 0 rows affected (0.0486 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_datos;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| cvv          | int  | NO   | PRI | NULL    |       |
+| card_pin     | int  | NO   |     | NULL    |       |
+| credit_limit | int  | NO   |     | NULL    |       |
+| card_number  | int  | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+4 rows in set (0.0025 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL >
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ MySQL  localhost:3308 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| agencia            |
+| credit_cards       |
+| evaluacion_1       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.0011 sec)
+ MySQL  localhost:3308 ssl  SQL > \use credit_card
+MySQL Error 1049: Unknown database 'credit_card'
+ MySQL  localhost:3308 ssl  SQL > \use credit_cards
+Default schema set to `credit_cards`.
+Fetching global names, object names from `credit_cards` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3308 ssl  credit_cards  SQL > show tables;
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| tarjeta                |
+| tarjeta_datos          |
+| tarjeta_fechas         |
++------------------------+
+3 rows in set (0.0027 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjetas(card_number, card_holders_name, card_type_full_name, ussuing_bank) values(30311422500343,'Norman Z Vasquez','Diners Club International','Diners Club');
+ERROR: 1146 (42S02): Table 'credit_cards.tarjetas' doesn't exist
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta(card_number, card_holders_name, card_type_full_name, ussuing_bank) values(375695197366267,'Modesto J Sylvester','American Express','American Express');
+ERROR: 1054 (42S22): Unknown column 'ussuing_bank' in 'field list'
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| card_number         | int         | NO   | PRI | NULL    |       |
+| card_holders_name   | varchar(50) | YES  |     | NULL    |       |
+| card_type_full_name | varchar(50) | YES  |     | NULL    |       |
+| issuing_bank        | varchar(50) | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.0027 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjetas(card_number, card_holders_name, card_type_full_name, issuing_bank) values(30311422500343,'Norman Z Vasquez','Diners Club International','Diners Club');
+ERROR: 1146 (42S02): Table 'credit_cards.tarjetas' doesn't exist
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta(card_number, card_holders_name, card_type_full_name, issuing_bank) values(30311422500343,'Norman Z Vasquez','Diners Club International','Diners Club');
+ERROR: 1264 (22003): Out of range value for column 'card_number' at row 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > alter table tarjetas modify card_number bigint;
+ERROR: 1146 (42S02): Table 'credit_cards.tarjetas' doesn't exist
+ MySQL  localhost:3308 ssl  credit_cards  SQL > alter table tarjeta modify card_number bigint;
+Query OK, 0 rows affected (0.0585 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| card_number         | bigint      | NO   | PRI | NULL    |       |
+| card_holders_name   | varchar(50) | YES  |     | NULL    |       |
+| card_type_full_name | varchar(50) | YES  |     | NULL    |       |
+| issuing_bank        | varchar(50) | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.0028 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta(card_number, card_holders_name, card_type_full_name, issuing_bank) values(30311422500343,'Norman Z Vasquez','Diners Club International','Diners Club');
+Query OK, 1 row affected (0.0165 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from tarjeta;
++----------------+-------------------+---------------------------+--------------+
+| card_number    | card_holders_name | card_type_full_name       | issuing_bank |
++----------------+-------------------+---------------------------+--------------+
+| 30311422500343 | Norman Z Vasquez  | Diners Club International | Diners Club  |
++----------------+-------------------+---------------------------+--------------+
+1 row in set (0.0111 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL >
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Query OK, 1 row affected (0.0024 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta(card_number, card_holders_name, card_type_full_name, issuing_bank) values(5114615112342900,'Fidel W Ivey','Master Card','Bank of America');
+Query OK, 1 row affected (0.0013 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta(card_number, card_holders_name, card_type_full_name, issuing_bank) values(38322331733521,'Warren G Roberson','Diners Club International','Diners Club');
+Query OK, 1 row affected (0.0014 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta(card_number, card_holders_name, card_type_full_name, issuing_bank) values(30261014041208,'Jacquie A Rose','Diners Club International','Diners Club');
+Query OK, 1 row affected (0.0013 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta(card_number, card_holders_name, card_type_full_name, issuing_bank) values(379130899717142,'Betty Kerr','American Express','American Express');
+Query OK, 1 row affected (0.0118 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > show tables;
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| tarjeta                |
+| tarjeta_datos          |
+| tarjeta_fechas         |
++------------------------+
+3 rows in set (0.0016 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta
+                                             -> ;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| card_number         | bigint      | NO   | PRI | NULL    |       |
+| card_holders_name   | varchar(50) | YES  |     | NULL    |       |
+| card_type_full_name | varchar(50) | YES  |     | NULL    |       |
+| issuing_bank        | varchar(50) | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.0026 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from tarjetas limit(10);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(10)' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from tarjetas limit = 10;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 10' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from tarjetas limit 10;
+ERROR: 1146 (42S02): Table 'credit_cards.tarjetas' doesn't exist
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from tarjeta limit 10;
++----------------+--------------------+---------------------------+--------------+
+| card_number    | card_holders_name  | card_type_full_name       | issuing_bank |
++----------------+--------------------+---------------------------+--------------+
+| 30000181867833 | Gus R Cheatham     | Diners Club International | Diners Club  |
+| 30003780087555 | Tom R Gray         | Diners Club International | Diners Club  |
+| 30003809294968 | Grant O Rapp       | Diners Club International | Diners Club  |
+| 30004738144266 | Lashawn O Peltier  | Diners Club International | Diners Club  |
+| 30004947254401 | Rudy Q Hardman     | Diners Club International | Diners Club  |
+| 30005009857023 | Norbert G Dollar   | Diners Club International | Diners Club  |
+| 30005030140985 | Kelvin Aragon      | Diners Club International | Diners Club  |
+| 30005069556895 | Kathleen Knight    | Diners Club International | Diners Club  |
+| 30006410139399 | Terence Dion       | Diners Club International | Diners Club  |
+| 30007851104041 | Eugene C Wilkerson | Diners Club International | Diners Club  |
++----------------+--------------------+---------------------------+--------------+
+10 rows in set (0.0010 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from tarjeta limit 30;
++----------------+--------------------+---------------------------+--------------+
+| card_number    | card_holders_name  | card_type_full_name       | issuing_bank |
++----------------+--------------------+---------------------------+--------------+
+| 30000181867833 | Gus R Cheatham     | Diners Club International | Diners Club  |
+| 30003780087555 | Tom R Gray         | Diners Club International | Diners Club  |
+| 30003809294968 | Grant O Rapp       | Diners Club International | Diners Club  |
+| 30004738144266 | Lashawn O Peltier  | Diners Club International | Diners Club  |
+| 30004947254401 | Rudy Q Hardman     | Diners Club International | Diners Club  |
+| 30005009857023 | Norbert G Dollar   | Diners Club International | Diners Club  |
+| 30005030140985 | Kelvin Aragon      | Diners Club International | Diners Club  |
+| 30005069556895 | Kathleen Knight    | Diners Club International | Diners Club  |
+| 30006410139399 | Terence Dion       | Diners Club International | Diners Club  |
+| 30007851104041 | Eugene C Wilkerson | Diners Club International | Diners Club  |
+| 30009382242746 | Jeffery M Adams    | Diners Club International | Diners Club  |
+| 30010154363470 | Anita R Moses      | Diners Club International | Diners Club  |
+| 30011168070721 | Stephania H Valle  | Diners Club International | Diners Club  |
+| 30011199446007 | Susan Bauer        | Diners Club International | Diners Club  |
+| 30012205395451 | Francisca K Rose   | Diners Club International | Diners Club  |
+| 30013024567114 | Vanessa V Thompson | Diners Club International | Diners Club  |
+| 30013631747463 | Stephanie J Greer  | Diners Club International | Diners Club  |
+| 30015224205957 | Diane Nolan        | Diners Club International | Diners Club  |
+| 30015566812774 | Alyse I Gutierrez  | Diners Club International | Diners Club  |
+| 30017026160273 | Lucius S Sena      | Diners Club International | Diners Club  |
+| 30017033364710 | Yon U Ngo          | Diners Club International | Diners Club  |
+| 30018927763520 | Mary B Salazar     | Diners Club International | Diners Club  |
+| 30019282429723 | Kenny W Fredrick   | Diners Club International | Diners Club  |
+| 30020773990462 | Mario E Lowe       | Diners Club International | Diners Club  |
+| 30021130291008 | Frances H Freeman  | Diners Club International | Diners Club  |
+| 30021368540142 | Laura D Obrien     | Diners Club International | Diners Club  |
+| 30022944237955 | Antione A Juarez   | Diners Club International | Diners Club  |
+| 30026848879432 | Rosalva J Clegg    | Diners Club International | Diners Club  |
+| 30027605385563 | Lynette Z Hsu      | Diners Club International | Diners Club  |
+| 30030296589436 | Stacy C Strickland | Diners Club International | Diners Club  |
++----------------+--------------------+---------------------------+--------------+
+30 rows in set (0.0010 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL >
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1 row in set (0.0038 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > show tables;
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| tarjeta                |
+| tarjeta_datos          |
+| tarjeta_fechas         |
++------------------------+
+3 rows in set (0.0027 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_fechas;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| card_number  | int  | YES  |     | NULL    |       |
+| issue_date   | int  | YES  |     | NULL    |       |
+| expiry_date  | int  | YES  |     | NULL    |       |
+| billing_date | int  | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+4 rows in set (0.0041 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta_fechas(card_number, issue_date, expiry_date, billing_date) values(30311422500343,'42491','47604','7');
+ERROR: 1264 (22003): Out of range value for column 'card_number' at row 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > alter table tarjeta_fechas modify card_number bigint;
+Query OK, 0 rows affected (0.0676 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta_fechas;
++--------------+--------+------+-----+---------+-------+
+| Field        | Type   | Null | Key | Default | Extra |
++--------------+--------+------+-----+---------+-------+
+| card_number  | bigint | YES  |     | NULL    |       |
+| issue_date   | int    | YES  |     | NULL    |       |
+| expiry_date  | int    | YES  |     | NULL    |       |
+| billing_date | int    | YES  |     | NULL    |       |
++--------------+--------+------+-----+---------+-------+
+4 rows in set (0.0021 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta_fechas(card_number, issue_date, expiry_date, billing_date) values(30311422500343,'42491','47604','7');
+Query OK, 1 row affected (0.0118 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from tarjeta_fechas;
++----------------+------------+-------------+--------------+
+| card_number    | issue_date | expiry_date | billing_date |
++----------------+------------+-------------+--------------+
+| 30311422500343 |      42491 |       47604 |            7 |
++----------------+------------+-------------+--------------+
+1 row in set (0.0009 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL >
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
++----------+
+| count(*) |
++----------+
+|     5000 |
++----------+
+1 row in set (0.0034 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select count(*) from tarjeta_datos;
++----------+
+| count(*) |
++----------+
+|     5000 |
++----------+
+1 row in set (0.0033 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select count(*) from tarjeta;
++----------+
+| count(*) |
++----------+
+|     4999 |
++----------+
+1 row in set (0.0034 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc tarjeta
+                                             -> ;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| card_number         | bigint      | NO   | PRI | NULL    |       |
+| card_holders_name   | varchar(50) | YES  |     | NULL    |       |
+| card_type_full_name | varchar(50) | YES  |     | NULL    |       |
+| issuing_bank        | varchar(50) | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.0032 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into tarjeta(card_number, card_holders_name, card_type_full_name, issuing_bank) values(375695197366267,'Modesto J Sylvester','American Express','American Express');
+Query OK, 1 row affected (0.0141 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select count(*) from tarjeta;
++----------+
+| count(*) |
++----------+
+|     5000 |
++----------+
+1 row in set (0.0037 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select count(*) from tarjeta_datos;
++----------+
+| count(*) |
++----------+
+|     5000 |
++----------+
+1 row in set (0.0035 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select count(*) from tarjeta_fechas;
++----------+
+| count(*) |
++----------+
+|     5000 |
++----------+
+1 row in set (0.0033 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL >}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
++--------------------+
+| Database           |
++--------------------+
+| agencia            |
+| credit_cards       |
+| evaluacion_1       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.0122 sec)
+ MySQL  localhost:3308 ssl  SQL > \use credit_cards
+Default schema set to `credit_cards`.
+Fetching global names, object names from `credit_cards` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3308 ssl  credit_cards  SQL > create user luis11 identified by '12345678';
+Query OK, 0 rows affected (0.0259 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select user from tarjetas;
+ERROR: 1146 (42S02): Table 'credit_cards.tarjetas' doesn't exist
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select user from tarjeta;
+ERROR: 1054 (42S22): Unknown column 'user' in 'field list'
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select user from credit_cards;
+ERROR: 1146 (42S02): Table 'credit_cards.credit_cards' doesn't exist
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select user from tarjeta;
+ERROR: 1054 (42S22): Unknown column 'user' in 'field list'
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select user from user;
+ERROR: 1146 (42S02): Table 'credit_cards.user' doesn't exist
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select user();
++----------------+
+| user()         |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > use mysql;
+Default schema set to `mysql`.
+Fetching global names, object names from `mysql` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3308 ssl  mysql  SQL > select user from user;
++------------------+
+| user             |
++------------------+
+| luis11           |
+| mysql.infoschema |
+| mysql.session    |
+| mysql.sys        |
+| root             |
++------------------+
+5 rows in set (0.0009 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| agencia            |
+| credit_cards       |
+| evaluacion_1       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.0016 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > grant all privileges on credit_cards.* to 'luis11'@'localhost' with grand option;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'grand option' at line 1
+ MySQL  localhost:3308 ssl  mysql  SQL > grant all privileges on credit_cards.* to 'luis11'@'localhost' with grant option;
+ERROR: 1410 (42000): You are not allowed to create a user with GRANT
+ MySQL  localhost:3308 ssl  mysql  SQL > grant all privileges on credit_cards.* to 'luis11' with grant option;
+Query OK, 0 rows affected (0.0150 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > flush privileges;
+Query OK, 0 rows affected (0.0141 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > create user axel07 identified by '12345678';
+Query OK, 0 rows affected (0.0171 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > grant all privileges on credit_cards.tarjetas to 'axel07' with grant option;
+Query OK, 0 rows affected (0.0134 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > create user jesus10 identified by '12345678'
+                                      -> ;
+Query OK, 0 rows affected (0.0163 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > grant all privileges on credit_cards.tarjetas_datos to 'jesus10' with grant option;
+Query OK, 0 rows affected (0.0129 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > create user angel22 identified by '12345678';
+Query OK, 0 rows affected (0.0168 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > grant all privileges on credit_cards.tarjetas_fechas to 'angel22' with grant option;
+Query OK, 0 rows affected (0.0395 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > create user juanito identified  by '12345678';
+Query OK, 0 rows affected (0.0162 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > grant insert,delete,select privileges on credit_cards.* to 'juanito' with grant option;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'privileges on credit_cards.* to 'juanito' with grant option' at line 1
+ MySQL  localhost:3308 ssl  mysql  SQL > grant insert.delete.select privileges on credit_cards.* to 'juanito' with grant option;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.delete.select privileges on credit_cards.* to 'juanito' with grant option' at line 1
+ MySQL  localhost:3308 ssl  mysql  SQL > grant insert,delete,select on credit_cards.* to 'juanito' with grant option;
+Query OK, 0 rows affected (0.0137 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL > show user from user;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'user from user' at line 1
+ MySQL  localhost:3308 ssl  mysql  SQL > select user from user;
++------------------+
+| user             |
++------------------+
+| angel22          |
+| axel07           |
+| jesus10          |
+| juanito          |
+| luis11           |
+| mysql.infoschema |
+| mysql.session    |
+| mysql.sys        |
+| root             |
++------------------+
+9 rows in set (0.0010 sec)
+ MySQL  localhost:3308 ssl  mysql  SQL >
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
++------------------------+
+| Tables_in_credit_cards |
++------------------------+
+| bancos                 |
+| tarjeta                |
+| tarjeta_datos          |
+| tarjeta_fechas         |
++------------------------+
+4 rows in set (0.0027 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > desc bancos;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id_bank | int         | NO   | PRI | NULL    | auto_increment |
+| bank    | varchar(50) | NO   |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+2 rows in set (0.0025 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * bancos limit 10;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'bancos limit 10' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from bancos limit 10;
++---------+------------------+
+| id_bank | bank             |
++---------+------------------+
+|       1 | American Express |
+|       2 | Citibank         |
+|       3 | Diners Club      |
+|       4 | Diners Club      |
+|       5 | GE Capital       |
+|       6 | JCB              |
+|       7 | JCB              |
+|       8 | Chase            |
+|       9 | American Express |
+|      10 | Citibank         |
++---------+------------------+
+10 rows in set (0.0010 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > delet from bancos;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delet from bancos' at line 1
+ MySQL  localhost:3308 ssl  credit_cards  SQL > delete from bancos;
+Query OK, 5000 rows affected (0.0838 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from bancos limit 10;
+Empty set (0.0009 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('Citibank');
+Query OK, 1 row affected (0.0125 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('American Express');
+Query OK, 1 row affected (0.0122 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('Bank of America');
+Query OK, 1 row affected (0.0126 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('Barclays');
+Query OK, 1 row affected (0.0124 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('Cabelas´s WFB');
+Query OK, 1 row affected (0.0125 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('Capital One');
+Query OK, 1 row affected (0.0128 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('Chase');
+Query OK, 1 row affected (0.0397 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('Diners Club');
+Query OK, 1 row affected (0.0124 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('Discover');
+Query OK, 1 row affected (0.0131 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('First National');
+Query OK, 1 row affected (0.0030 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('GE Capital');
+Query OK, 1 row affected (0.0130 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('JCB');
+Query OK, 1 row affected (0.0122 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('PNC');
+Query OK, 1 row affected (0.0132 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('U.S. Bancorp');
+Query OK, 1 row affected (0.0402 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('USAA');
+Query OK, 1 row affected (0.0128 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > Insert into bancos(bank) values('Wells Fargo');
+Query OK, 1 row affected (0.0125 sec)
+ MySQL  localhost:3308 ssl  credit_cards  SQL > select * from bancos;
++---------+------------------+
+| id_bank | bank             |
++---------+------------------+
+|    5001 | Citibank         |
+|    5002 | American Express |
+|    5003 | Bank of America  |
+|    5004 | Barclays         |
+|    5005 | Cabelas´s WFB    |
+|    5006 | Capital One      |
+|    5007 | Chase            |
+|    5008 | Diners Club      |
+|    5009 | Discover         |
+|    5010 | First National   |
+|    5011 | GE Capital       |
+|    5012 | JCB              |
+|    5013 | PNC              |
+|    5014 | U.S. Bancorp     |
+|    5015 | USAA             |
+|    5016 | Wells Fargo      |
++---------+------------------+

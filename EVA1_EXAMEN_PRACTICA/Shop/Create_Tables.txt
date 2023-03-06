@@ -1,0 +1,159 @@
+MySQL Shell 8.0.32
+
+Copyright (c) 2016, 2023, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect
+\connect [--mx|--mysqlx|--mc|--mysql] [--ssh <sshuri>] <URI>
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Please provide the password for 'root@localhost': ****
+Save password for 'root@localhost'? [Y]es/[N]o/Ne[v]er (default No): n
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 10
+Server version: 8.0.32 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL 
+create table Customer(
+customer_id varchar(10)not null primary key,
+customer_name varchar(
+50)not null,segment enum('Consumer','Corporate','Home Office')not null,
+country varchar(20) not null);
+
+
+ERROR: 1046 (3D000): No database selected
+ MySQL  localhost:3306 ssl  SQL > create database shop;
+Query OK, 1 row affected (0.0028 sec)
+ MySQL  localhost:3306 ssl  SQL > use database;
+MySQL Error 1049: Unknown database 'database'
+ MySQL  localhost:3306 ssl  SQL > use shop;
+Default schema set to `shop`.
+Fetching global names, object names from `shop` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  shop  SQL > create table Customer( customer_id varchar(10)not null primary key, customer_name varchar( 50)not null, country varchar(20) not null, city varchar(30)not null, state varchar(30)not null, postal_code int not null, region enum('South','West','Central','East')not null, segment enum('Consumer','Corporate','Home Office'));
+Query OK, 0 rows affected (0.0217 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > show tables;
++----------------+
+| Tables_in_shop |
++----------------+
+| customer       |
++----------------+
+1 row in set (0.0014 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > create table Product(
+                                     -> product_id varchar(30)not null primary key,
+                                     -> product_name varchar(50)not null,
+                                     -> category enum('Furniture','Office Supplies','Technology');
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
+ MySQL  localhost:3306 ssl  shop  SQL > create table Product( product_id varchar(30)not null primary key, product_name varchar(50)not null, category enum('Furniture','Office Supplies','Technology'));
+Query OK, 0 rows affected (0.0159 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > show tables;
++----------------+
+| Tables_in_shop |
++----------------+
+| customer       |
+| product        |
++----------------+
+2 rows in set (0.0016 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > create table Category(
+                                     -> category enum('Furniture','Office Supplies','Technology') not null primary key,
+                                     -> sub_category varchar(30)not null);
+Query OK, 0 rows affected (0.0135 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > create table order_tails(
+                                     -> id int not null primary key auto_increment,
+                                     -> order_id varchar(30)not null,
+                                     -> product_id varchar(30)not null,
+                                     -> quantity int not null,
+                                     -> sales int not null,
+                                     -> discount int not null,
+                                     -> profit int not null);
+Query OK, 0 rows affected (0.0155 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > show tables;
++----------------+
+| Tables_in_shop |
++----------------+
+| category       |
+| customer       |
+| order_tails    |
+| product        |
++----------------+
+4 rows in set (0.0016 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > create table Order(
+                                     -> order_id varchar(30)not null primary key,
+                                     -> order_date int not null,
+                                     -> ship_date int not null,
+                                     -> ship_mode enum('First Class','Second Class','Standard Class')not null,
+                                     -> customer_id varchar(30)not null);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Order(
+order_id varchar(30)not null primary key,
+order_date int not null,
+MySQL  localhost:3306 ssl  shop  SQL > create table Orderr(order_id varchar(30) primary key, ship_date int not null, ship_mode enum('First Class','Second Class','Standard Class')not null, customer_id varchar(30)not null);
+Query OK, 0 rows affected (0.0138 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > show tables;
++----------------+
+| Tables_in_shop |
++----------------+
+| category       |
+| customer       |
+| order_tails    |
+| orderr         |
+| product        |
++----------------+
+5 rows in set (0.0017 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > desc category;
++--------------+--------------------------------------------------+------+-----+---------+-------+
+| Field        | Type                                             | Null | Key | Default | Extra |
++--------------+--------------------------------------------------+------+-----+---------+-------+
+| category     | enum('Furniture','Office Supplies','Technology') | NO   | PRI | NULL    |       |
+| sub_category | varchar(30)                                      | NO   |     | NULL    |       |
++--------------+--------------------------------------------------+------+-----+---------+-------+
+2 rows in set (0.0022 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > desc customer;
++---------------+--------------------------------------------+------+-----+---------+-------+
+| Field         | Type                                       | Null | Key | Default | Extra |
++---------------+--------------------------------------------+------+-----+---------+-------+
+| customer_id   | varchar(10)                                | NO   | PRI | NULL    |       |
+| customer_name | varchar(50)                                | NO   |     | NULL    |       |
+| country       | varchar(20)                                | NO   |     | NULL    |       |
+| city          | varchar(30)                                | NO   |     | NULL    |       |
+| state         | varchar(30)                                | NO   |     | NULL    |       |
+| postal_code   | int                                        | NO   |     | NULL    |       |
+| region        | enum('South','West','Central','East')      | NO   |     | NULL    |       |
+| segment       | enum('Consumer','Corporate','Home Office') | YES  |     | NULL    |       |
++---------------+--------------------------------------------+------+-----+---------+-------+
+8 rows in set (0.0022 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > desc order_tails;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| order_id   | varchar(30) | NO   |     | NULL    |                |
+| product_id | varchar(30) | NO   |     | NULL    |                |
+| quantity   | int         | NO   |     | NULL    |                |
+| sales      | int         | NO   |     | NULL    |                |
+| discount   | int         | NO   |     | NULL    |                |
+| profit     | int         | NO   |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.0023 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > desc orderr;
++-------------+-----------------------------------------------------+------+-----+---------+-------+
+| Field       | Type                                                | Null | Key | Default | Extra |
++-------------+-----------------------------------------------------+------+-----+---------+-------+
+| order_id    | varchar(30)                                         | NO   | PRI | NULL    |       |
+| ship_date   | int                                                 | NO   |     | NULL    |       |
+| ship_mode   | enum('First Class','Second Class','Standard Class') | NO   |     | NULL    |       |
+| customer_id | varchar(30)                                         | NO   |     | NULL    |       |
++-------------+-----------------------------------------------------+------+-----+---------+-------+
+4 rows in set (0.0022 sec)
+ MySQL  localhost:3306 ssl  shop  SQL > desc product;
++--------------+--------------------------------------------------+------+-----+---------+-------+
+| Field        | Type                                             | Null | Key | Default | Extra |
++--------------+--------------------------------------------------+------+-----+---------+-------+
+| product_id   | varchar(30)                                      | NO   | PRI | NULL    |       |
+| product_name | varchar(50)                                      | NO   |     | NULL    |       |
+| category     | enum('Furniture','Office Supplies','Technology') | YES  |     | NULL    |       |
++--------------+--------------------------------------------------+------+-----+---------+-------+
+3 rows in set (0.0021 sec)
+ MySQL  localhost:3306 ssl  shop  SQL >
